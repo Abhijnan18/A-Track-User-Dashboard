@@ -9,7 +9,8 @@ const App: React.FC = () => {
       checkIn: '9:00 am',
       checkOut: '4:55 pm',
       breaks: [{ description: 'Lunch Break', from: '1:01 pm', to: '1:30 pm', totalTime: '00:24:00' }],
-      totalHours: '7:02:43'
+      totalHours: '7:02:43',
+      status: 'normal'
     },
     {
       date: 'Thursday, 13',
@@ -19,9 +20,34 @@ const App: React.FC = () => {
         { description: 'Lunch Break', from: '1:01 pm', to: '1:30 pm', totalTime: '00:24:00' },
         { description: 'Rest Break', from: '3:10 pm', to: '3:16 pm', totalTime: '00:06:12' }
       ],
-      totalHours: '6:02:43'
+      totalHours: '6:02:43',
+      status: 'normal'
     },
-    // Add more data as needed
+    {
+      date: 'Wednesday, 12',
+      checkIn: '9:00 am',
+      checkOut: '4:55 pm',
+      breaks: [{ description: 'Lunch Break', from: '1:01 pm', to: '1:30 pm', totalTime: '00:24:00' }],
+      totalHours: '7:02:43',
+      status: 'normal'
+    },
+    {
+      date: 'Tuesday, 11',
+      checkIn: '',
+      checkOut: '',
+      breaks: [],
+      totalHours: '',
+      status: 'sick',
+      leaveInfo: 'Sick Leave'
+    },
+    {
+      date: 'Monday, 10',
+      checkIn: '9:00 am',
+      checkOut: '4:55 pm',
+      breaks: [{ description: 'Lunch Break', from: '1:01 pm', to: '1:30 pm', totalTime: '00:24:00' }],
+      totalHours: '7:02:43',
+      status: 'normal'
+    },
   ];
 
   return (
@@ -35,6 +61,8 @@ const App: React.FC = () => {
           checkOut={entry.checkOut}
           breaks={entry.breaks}
           totalHours={entry.totalHours}
+          // status={entry.status}
+          leaveInfo={entry.leaveInfo}
         />
       ))}
     </div>
