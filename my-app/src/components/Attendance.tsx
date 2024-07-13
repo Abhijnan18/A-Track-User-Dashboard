@@ -5,7 +5,7 @@ interface AttendanceProps {
     checkIn: string;
     checkOut: string;
     totalHours: string;
-    status?: 'present' | 'absent';
+    status: 'present' | 'absent';
 }
 
 const Attendance: React.FC<AttendanceProps> = ({ date, checkIn, checkOut, totalHours, status }) => {
@@ -34,7 +34,6 @@ const Attendance: React.FC<AttendanceProps> = ({ date, checkIn, checkOut, totalH
                     </div>
                 </div>
             )}
-
         </div>
     );
 }
