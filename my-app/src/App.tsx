@@ -8,35 +8,30 @@ const App: React.FC = () => {
       date: 'Friday, April 14',
       checkIn: '09:00:00',
       checkOut: '16:55:00',
-      totalHours: '7:02:43',
       status: 'present'
     },
     {
       date: 'Thursday, April 13',
       checkIn: '10:05:00',
       checkOut: '17:02:00',
-      totalHours: '6:02:43',
       status: 'present'
     },
     {
       date: 'Wednesday, April 12',
       checkIn: '09:00:00',
       checkOut: '16:30:00',
-      totalHours: '7:02:43',
       status: 'present'
     },
     {
       date: 'Tuesday, April 11',
       checkIn: '',
       checkOut: '',
-      totalHours: '',
       status: 'absent'
     },
     {
       date: 'Monday, April 10',
       checkIn: '09:00:00',
       checkOut: '16:55:00',
-      totalHours: '7:02:43',
       status: 'present'
     },
   ];
@@ -53,7 +48,6 @@ const App: React.FC = () => {
           date={entry.date}
           checkIn={entry.checkIn}
           checkOut={entry.checkOut}
-          totalHours={entry.totalHours}
           status={entry.status}
         />
       ))}

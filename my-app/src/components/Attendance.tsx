@@ -4,15 +4,24 @@ interface AttendanceProps {
     date: string;
     checkIn: string;
     checkOut: string;
-    totalHours: string;
     status: 'present' | 'absent';
 }
 
-const Attendance: React.FC<AttendanceProps> = ({ date, checkIn, checkOut, totalHours, status }) => {
+const Attendance: React.FC<AttendanceProps> = ({ date, checkIn, checkOut, status }) => {
     const checkInTime = new Date(`1970-01-01T${checkIn}`);
     const checkOutTime = new Date(`1970-01-01T${checkOut}`);
     const checkInLimit = new Date('1970-01-01T09:00:00');
     const checkOutLimit = new Date('1970-01-01T16:45:00');
+
+    const calculateTotalHours = (checkIn: Date, checkOut: Date): string => {
+        const diff = checkOut.getTime() - checkIn.getTime();
+        const hours = Math.floor(diff / 1000 / 60 / 60);
+        const minutes = Math.floor((diff / 1000 / 60) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    };
+
+    const totalHours = status === 'present' ? calculateTotalHours(checkInTime, checkOutTime) : '';
 
     return (
         <div className="bg-white rounded-lg shadow p-4 mb-4">
